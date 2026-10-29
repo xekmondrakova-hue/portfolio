@@ -1,0 +1,514 @@
+/* ========== Reset & Base ========== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+  background: #0a0a1a;
+  color: #1a1a1a;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a,
+video {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+video:focus-visible {
+  outline: 3px solid #f97646;
+  outline-offset: 4px;
+}
+
+/* ========== Custom Cursor ========== */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #464ff9;
+  border: 3.5px solid #ffffff;
+  pointer-events: none;
+  z-index: 1000;
+  transform: translate(-50%, -50%);
+  transition: background-color 0.2s ease, width 0.2s ease, height 0.2s ease;
+}
+
+body.hover-link .cursor {
+  background: #f97646;
+  width: 36px;
+  height: 36px;
+}
+
+@media (hover: none), (pointer: coarse) {
+  body { cursor: auto; }
+  .cursor { display: none; }
+  .flower { transform: none !important; }
+}
+
+/* ========== HERO ========== */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  min-height: 560px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: #464ff9 url('hero-bg.jpg') center / cover no-repeat;
+  z-index: 1;
+}
+
+.flower-wrap {
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  width: min(74vw, 1120px);
+  aspect-ratio: 1452 / 1080;
+  z-index: 4;
+  pointer-events: none;
+  perspective: 1200px;
+}
+
+.flower {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.3));
+  transform-origin: center;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.12s ease-out;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ========== ABOUT ========== */
+.about {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1920 / 1080;
+  background: #f0f0f0;
+  overflow: hidden;
+}
+
+.about-base {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.photo-stack {
+  position: absolute;
+  left: 5.8%;
+  top: 10%;
+  width: 25.2%;
+  height: 49%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.photo-flowers {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: -12%;
+  right: -60%;
+  z-index: 2;
+  opacity: 0;
+  transform: rotate(12deg) scale(0.5);
+  transform-origin: center;
+  pointer-events: none;
+  user-select: none;
+  will-change: transform, opacity;
+}
+
+.photo-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: clamp(6px, 1.05vw, 20px);
+  z-index: 3;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.14);
+  transform-origin: center;
+  will-change: transform;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.phone-link {
+  position: absolute;
+  left: 7.9%;
+  top: 87.6%;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 500;
+  font-size: clamp(11px, 1.15vw, 17px);
+  color: #464ff9;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.phone-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1.5px;
+  background: #464ff9;
+  transition: width 0.2s ease;
+}
+
+/* ========== PORTFOLIO SLIDES ========== */
+.portfolio-slide {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #0a0a1a;
+}
+
+.full-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+}
+
+picture { display: block; }
+.mobile-slide-img { display: none; }
+
+/* Плавное появление: без JS секции остаются полностью видимыми. */
+[data-reveal] {
+  transition: opacity 0.68s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.68s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-reveal].reveal-pending {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0) scale(0.99);
+  will-change: transform, opacity;
+}
+
+[data-reveal].reveal-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ========== DOSSIER DIRECT ========== */
+.dossier-btn {
+  position: absolute;
+  top: 17.5%;
+  right: 6%;
+  width: 12.2%;
+  height: 17.5%;
+  min-height: 44px;
+  background: #ffffff;
+  border-radius: clamp(4px, 0.45vw, 8px);
+  border: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  z-index: 10;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  font-weight: 600;
+  font-size: clamp(10px, 1.2vw, 25px);
+  color: #464ff9;
+  white-space: nowrap;
+}
+
+/* ========== VIDEO ========== */
+.video-slide {
+  min-height: 100vh;
+  min-height: 100svh;
+  background: #0a0a1a url('assets/animation_backgrund.jpg') center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(20px, 3vw, 48px) 20px;
+}
+
+.video-container {
+  width: 70%;
+  max-width: 1200px;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #171717;
+}
+
+.portfolio-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  outline: none;
+  background: #171717;
+}
+
+/* ========== CONTACTS ========== */
+.contacts-content {
+  position: absolute;
+  top: 45%;
+  left: 5.8%;
+  display: flex;
+  gap: clamp(10px, 1vw, 16px);
+  z-index: 10;
+}
+
+.contact-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 64px;
+  min-height: 44px;
+  padding: 12px 28px;
+  background: #ffffff;
+  border-radius: clamp(6px, 0.55vw, 10px);
+  border: 2px solid transparent;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: clamp(20px, 2.4vw, 47px);
+  color: #464ff9;
+  white-space: nowrap;
+}
+
+/* Ховер применяется только на устройствах с мышью. */
+@media (hover: hover) and (pointer: fine) {
+  .phone-link:hover::after { width: 100%; }
+
+  .dossier-btn:hover,
+  .contact-btn:hover {
+    background: transparent;
+    border-color: #ffffff;
+    color: #ffffff;
+  }
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 900px) {
+  .hero {
+    height: 100vh;
+    height: 100svh;
+    min-height: 100svh;
+  }
+
+  /* Весь заголовок остаётся в кадре на узком экране. */
+  .hero-bg {
+    background-size: 100% auto;
+    background-position: center;
+  }
+
+  .flower-wrap {
+    left: 50%;
+    width: min(140vw, 760px);
+  }
+
+  .dossier-btn {
+    right: 4%;
+    top: 50%;
+    width: auto;
+    min-width: 116px;
+    height: 44px;
+    padding: 0 12px;
+    transform: translateY(-50%);
+    font-size: 12px;
+  }
+
+  .video-slide {
+    padding: 24px 12px;
+  }
+
+  .video-container {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .contact-btn {
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .flower-wrap {
+    width: 145vw;
+  }
+
+  .phone-link {
+    left: 7%;
+    top: auto;
+    bottom: 0;
+    min-height: 44px;
+    font-size: 11px;
+  }
+
+  .dossier-btn {
+    border-width: 1px;
+  }
+
+  .video-slide {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .video-container {
+    border-radius: 0;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55);
+  }
+
+  .contact-btn {
+    padding: 8px 16px;
+    border-width: 1px;
+  }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+  .hero-bg {
+    background-size: cover;
+  }
+
+  .flower-wrap {
+    width: min(82vw, 700px);
+  }
+}
+
+/* ========== MOBILE SLIDE REPLACEMENTS ========== */
+@media (max-width: 900px) {
+  body { cursor: auto; }
+  .cursor { display: none; }
+
+  .mobile-slide-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .hero {
+    display: block;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 390 / 409;
+  }
+
+  .hero-bg,
+  .flower-wrap,
+  .about-base,
+  .photo-stack,
+  .about .phone-link {
+    display: none;
+  }
+
+  .about { aspect-ratio: auto; }
+
+  .dossier-btn {
+    top: 83.95%;
+    right: auto;
+    left: 5.64%;
+    width: 59.74%;
+    height: auto;
+    min-width: 0;
+    min-height: 44px;
+    aspect-ratio: 233 / 49;
+    padding: 0 12px;
+    transform: none;
+    border-radius: clamp(6px, 2.05vw, 18px);
+    font-size: clamp(16px, 5.1vw, 46px);
+  }
+
+  .contacts-content {
+    top: 49.55%;
+    left: 8.2%;
+    width: 83.6%;
+    gap: 4.6%;
+  }
+
+  .contact-btn {
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 44px;
+    height: auto;
+    aspect-ratio: 154 / 56;
+    padding: 0;
+    border-radius: clamp(6px, 2.6vw, 24px);
+    font-size: clamp(20px, 7.2vw, 65px);
+  }
+
+  [data-reveal],
+  [data-reveal].reveal-pending,
+  [data-reveal].reveal-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto;
+  }
+}
+
+/* ========== REDUCED MOTION ========== */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  body { cursor: auto; }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .cursor { display: none; }
+  .flower { transform: none !important; }
+
+  [data-reveal],
+  [data-reveal].reveal-pending,
+  [data-reveal].reveal-visible {
+    opacity: 1;
+    transform: none;
+    will-change: auto;
+  }
+}

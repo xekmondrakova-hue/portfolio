@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#464ff9" />
+  <title>Портфолио 2026 — Мондракова Софья</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+
+  <main>
+    <!-- Первый экран -->
+    <section class="hero" id="hero" aria-label="Портфолио Софьи Мондраковой">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="flower-wrap" id="flowerWrap">
+        <img src="flower.png" alt="" class="flower" id="flower" width="1452" height="1080" fetchpriority="high" draggable="false" />
+      </div>
+      <img src="assets/mid_mobile.jpg" alt="Портфолио Софьи Мондраковой, графический дизайнер, 2026" class="mobile-slide-img hero-mobile-img" width="390" height="409" fetchpriority="high" decoding="async" draggable="false" />
+    </section>
+
+    <!-- Об авторе -->
+    <section class="about" id="about" data-reveal>
+      <img src="assets/about-base.jpg" alt="Информация о Софье Мондраковой, её навыках и специализации" class="about-base" width="1920" height="1080" loading="lazy" decoding="async" draggable="false" />
+      <img src="assets/about_mobile.jpg" alt="Информация о Софье Мондраковой, её навыках и специализации" class="mobile-slide-img about-mobile-img" width="390" height="2403" loading="lazy" decoding="async" draggable="false" />
+
+      <div class="photo-stack" id="photoStack">
+        <img src="assets/flowers.png" alt="" class="photo-flowers" id="photoFlowers" width="542" height="521" loading="lazy" decoding="async" draggable="false" />
+        <img src="assets/photo.png" alt="Софья Мондракова" class="photo-img" id="photoImg" width="489" height="508" loading="lazy" decoding="async" draggable="false" />
+      </div>
+
+      <a href="https://t.me/bixb_m" target="_blank" rel="noopener" class="phone-link" data-hover>
+        +7 952 935 9491
+      </a>
+    </section>
+
+    <!-- Baza -->
+    <section class="portfolio-slide" id="project-baza" data-reveal>
+      <picture>
+        <source media="(max-width: 900px)" srcset="assets/fir_stile_mobile.jpg" width="390" height="698" />
+        <img src="assets/project-baza.jpg" alt="Baza — фирменный стиль" class="full-img" width="1920" height="399" loading="lazy" decoding="async" draggable="false" />
+      </picture>
+    </section>
+
+    <section class="portfolio-slide" id="project-baza-mockups" data-reveal>
+      <img src="assets/project-baza-mockups.jpg" alt="Baza — примеры фирменного стиля" class="full-img" width="1920" height="1080" loading="lazy" decoding="async" draggable="false" />
+    </section>
+
+    <section class="portfolio-slide" id="project-baza-mockups-2" data-reveal>
+      <img src="assets/project-baza-mockups_2.jpg" alt="Baza — макеты носителей" class="full-img" width="1920" height="1080" loading="lazy" decoding="async" draggable="false" />
+    </section>
+
+    <section class="portfolio-slide" id="project-icon" data-reveal>
+      <img src="assets/icon.jpg" alt="Фирменная иконка проекта" class="full-img" width="1920" height="249" loading="lazy" decoding="async" draggable="false" />
+    </section>
+
+    <!-- Dossier Direct -->
+    <section class="portfolio-slide slide-dossier" id="project-dossier" data-reveal>
+      <picture>
+        <source media="(max-width: 900px)" srcset="assets/dossier_mobile.jpg" width="390" height="698" />
+        <img src="assets/dossier_1.jpg" alt="Dossier Direct — обложка проекта" class="full-img" width="1920" height="399" loading="lazy" decoding="async" draggable="false" />
+      </picture>
+      <a href="https://DossierDirect.com" target="_blank" rel="noopener" class="dossier-btn" data-hover>
+        <span>Dossier Direct</span>
+      </a>
+    </section>
+
+    <section class="portfolio-slide" id="project-dossier-mockups" data-reveal>
+      <img src="assets/dossier.jpg" alt="Dossier Direct — макеты" class="full-img" width="1920" height="1080" loading="lazy" decoding="async" draggable="false" />
+    </section>
+
+    <section class="portfolio-slide" id="project-dossier-mockups-2" data-reveal>
+      <img src="assets/dossier_2.jpg" alt="Dossier Direct — следующий экран проекта" class="full-img" width="1920" height="1080" loading="lazy" decoding="async" draggable="false" />
+    </section>
+
+    <section class="portfolio-slide" id="project-logos" data-reveal>
+      <img src="assets/logos.jpg" alt="Подборка логотипов" class="full-img" width="1920" height="1080" loading="lazy" decoding="async" draggable="false" />
+    </section>
+
+    <!-- Синергия -->
+    <section class="portfolio-slide" id="project-sinergia-intro" data-reveal>
+      <picture>
+        <source media="(max-width: 900px)" srcset="assets/reclam_mobile.jpg" width="390" height="698" />
+        <img src="assets/sinergia_vstavka.jpg" alt="Синергия — вступительный экран" class="full-img" width="1920" height="399" loading="lazy" decoding="async" draggable="false" />
+      </picture>
+    </section>
+
+    <section class="portfolio-slide" id="project-sinergia" data-reveal>
+      <img src="assets/sinergia_blok.jpg" alt="Синергия — первая часть проекта" class="full-img" width="1920" height="2428" loading="lazy" decoding="async" draggable="false" />
+    </section>
+
+    <section class="portfolio-slide" id="project-sinergia-2" data-reveal>
+      <img src="assets/sinergia_blok_2.jpg" alt="Синергия — вторая часть проекта" class="full-img" width="1920" height="1590" loading="lazy" decoding="async" draggable="false" />
+    </section>
+
+    <section class="portfolio-slide" id="project-sinergia-3" data-reveal>
+      <img src="assets/sinergia_blok_3.jpg" alt="Синергия — третья часть проекта" class="full-img" width="1920" height="1080" loading="lazy" decoding="async" draggable="false" />
+    </section>
+
+    <!-- 3D и анимация -->
+    <section class="portfolio-slide" id="project-3d" data-reveal>
+      <picture>
+        <source media="(max-width: 900px)" srcset="assets/3d_mobile.jpg" width="390" height="333" />
+        <img src="assets/3d.jpg" alt="3D-проект — обложка" class="full-img" width="1920" height="399" loading="lazy" decoding="async" draggable="false" />
+      </picture>
+    </section>
+
+    <section class="portfolio-slide" id="project-3d-2" data-reveal>
+      <img src="assets/3d_1.png" alt="3D-проект — первый экран" class="full-img" width="1920" height="1080" loading="lazy" decoding="async" draggable="false" />
+    </section>
+
+    <section class="portfolio-slide" id="project-3d-3" data-reveal>
+      <img src="assets/3d_2.png" alt="3D-проект — второй экран" class="full-img" width="1920" height="853" loading="lazy" decoding="async" draggable="false" />
+    </section>
+
+    <section class="portfolio-slide" id="project-animation" data-reveal>
+      <picture>
+        <source media="(max-width: 900px)" srcset="assets/animation_mobile.jpg" width="390" height="333" />
+        <img src="assets/animation.jpg" alt="Анимационный проект — обложка" class="full-img" width="1920" height="399" loading="lazy" decoding="async" draggable="false" />
+      </picture>
+    </section>
+
+    <section class="portfolio-slide video-slide" id="project-animation-video" data-reveal>
+      <div class="video-container">
+        <video class="portfolio-video" id="portfolioVideo" controls playsinline muted preload="metadata" aria-label="Видео анимационного проекта">
+          <source src="assets/animation.webm" type="video/webm">
+          <source src="assets/animation.mp4" type="video/mp4">
+          Ваш браузер не поддерживает видео.
+        </video>
+      </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="portfolio-slide contacts-slide" id="project-contacts" data-reveal>
+      <picture>
+        <source media="(max-width: 900px)" srcset="assets/contacts_mobile.jpg" width="390" height="335" />
+        <img src="assets/contacts-bg.jpg" alt="Контакты Софьи Мондраковой" class="full-img" width="1920" height="1080" loading="lazy" decoding="async" draggable="false" />
+      </picture>
+
+      <div class="contacts-content">
+        <a href="https://t.me/bixb_m" target="_blank" rel="noopener" class="contact-btn" data-hover aria-label="Написать в Telegram">
+          <span>TG</span>
+        </a>
+        <a href="https://max.ru/u/f9LHodD0cOKf6ZbQBCPcWOa4Eex7dHk1msg-Rk9A-hcuhKgRJ5H7Xxq3NSc" target="_blank" rel="noopener" class="contact-btn" data-hover aria-label="Написать в MAX">
+          <span>MAX</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
